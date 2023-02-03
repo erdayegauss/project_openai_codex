@@ -6,7 +6,8 @@ import { Configuration, OpenAIApi } from 'openai'
 dotenv.config()
 
 const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
+  organization: 'org-TZqf1bQRXckkbayuIuqIr4r7',
+  apiKey: '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',
 });
 
 const openai = new OpenAIApi(configuration);
@@ -24,7 +25,7 @@ app.get('/', async (req, res) => {
 app.post('/', async (req, res) => {
   try {
     const prompt = req.body.prompt;
-
+    
     const response = await openai.createCompletion({
       model: "text-davinci-003",
       prompt: `${prompt}`,
@@ -45,4 +46,4 @@ app.post('/', async (req, res) => {
   }
 })
 
-app.listen(5000, () => console.log('AI server started on http://localhost:5000'))
+app.listen(5001, () => console.log('AI server started on http://localhost:5001'))
